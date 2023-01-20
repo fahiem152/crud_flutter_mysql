@@ -5,7 +5,7 @@ import 'package:crud_flutter_database_mysql/utils/constanta.dart';
 import 'package:http/http.dart' as http;
 
 class ProductService {
-  static const _baseUrl = baseUrl + 'api/product';
+  static const _baseUrl = '${baseUrl}api/product';
 
   static Future<List<ProductModel>> getProducts() async {
     final response = await http.get(Uri.parse(_baseUrl));
