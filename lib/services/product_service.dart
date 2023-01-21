@@ -22,4 +22,35 @@ class ProductService {
       throw Exception('Failed to load data');
     }
   }
+
+  // Future<ProductModel> addProduct(ProductModel productModel) async {
+  //   final response = await http.post(
+  //     Uri.parse(_baseUrl),
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: productToJson(productModel),
+  //   );
+  //   if (response.statusCode == 200) {
+  //     return productFromJson(response.body);
+  //   } else {
+  //     throw Exception('Failed to add data');
+  //   }
+  // }
+
+  Future<http.Response> addProduct(ProductModel productModel) async {
+    final response = await http.post(
+      Uri.parse(_baseUrl),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: productToJson(productModel),
+    );
+    return response;
+    // if (response.statusCode == 200) {
+    //   return productFromJson(response.body);
+    // } else {
+    //   return false;
+    // }
+  }
 }

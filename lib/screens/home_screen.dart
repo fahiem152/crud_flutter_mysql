@@ -1,10 +1,11 @@
 import 'package:crud_flutter_database_mysql/models/product_model.dart';
+import 'package:crud_flutter_database_mysql/screens/add_product_screen.dart';
 import 'package:crud_flutter_database_mysql/services/product_service.dart';
 
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -35,6 +36,17 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const AddProductScreen(),
+            ),
+          );
+        },
+        child: const Icon(Icons.add),
+      ),
       appBar: AppBar(
         title: const Text('Home'),
       ),
@@ -55,8 +67,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   flex: 1,
                   child: CircleAvatar(
                     child: Text(
-                      _product[index].id.toString(),
-                    ),
+                        // _product[index].id.toString(),
+                        "1"),
                   ),
                 ),
                 // const SizedBox(
@@ -84,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 8,
                       ),
                       Text(
